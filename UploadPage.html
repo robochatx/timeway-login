@@ -32,26 +32,10 @@
       font-size: 28px;
       font-weight: bold;
       color: #333;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      font-size: 14px;
-      color: #555;
       margin-bottom: 30px;
     }
     input[type="file"] {
       width: 100%;
-      margin-bottom: 20px;
-    }
-    .upload-btn {
-      width: 100%;
-      padding: 14px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
       margin-bottom: 20px;
     }
     .guide-btn {
@@ -75,14 +59,18 @@
       const guide = document.getElementById('guide');
       guide.style.display = guide.style.display === 'none' ? 'block' : 'none';
     }
+
+    function redirectOnUpload(event) {
+      if (event.target.files.length > 0) {
+        window.location.href = 'table.html';
+      }
+    }
   </script>
 </head>
 <body>
   <div class="container">
     <div class="title">העלאת קובץ</div>
-    <div class="subtitle">אנא העלה קובץ Excel עם פרטי הנסיעות (שם נהג, שעת התחלה, תיאור)</div>
-    <input type="file" accept=".xlsx" />
-    <button class="upload-btn" onclick="location.href='table.html'">העלה קובץ</button>
+    <input type="file" accept=".xlsx" onchange="redirectOnUpload(event)" />
     <button class="guide-btn" onclick="toggleGuide()">הצג מדריך להעלאה</button>
     <div class="guide" id="guide">
       ודא שהקובץ שלך מכיל עמודות בשם נהג, שעת התחלה ותיאור. כל שורה מייצגת נסיעה אחת.
