@@ -21,37 +21,53 @@
     }
     .container {
       background: #ffffffee;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       text-align: center;
       width: 100%;
       max-width: 500px;
+      transition: all 0.3s ease;
     }
     .title {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
-      color: #333;
-      margin-bottom: 30px;
+      color: #1f1f1f;
+      margin-bottom: 40px;
     }
     input[type="file"] {
-      width: 100%;
-      margin-bottom: 20px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    input[type="file"]:hover {
+      background-color: #eaeaea;
     }
     .guide-btn {
+      display: inline-block;
+      margin-top: 20px;
       font-size: 14px;
       color: #0056b3;
       background: none;
       border: none;
       cursor: pointer;
       text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .guide-btn:hover {
+      color: #003d80;
     }
     .guide {
       display: none;
       margin-top: 20px;
       font-size: 13px;
       color: #333;
-      text-align: right;
+      text-align: center;
+      line-height: 1.6;
     }
   </style>
   <script>
@@ -62,7 +78,9 @@
 
     function redirectOnUpload(event) {
       if (event.target.files.length > 0) {
-        window.location.href = 'table.html';
+        setTimeout(() => {
+          window.location.href = 'table.html';
+        }, 500);
       }
     }
   </script>
