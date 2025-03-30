@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Schedule - TimeWay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeWay Upload</title>
   <style>
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       padding: 0;
@@ -19,52 +18,61 @@
       align-items: center;
       height: 100vh;
     }
-
     .container {
       background: #ffffffaa;
       padding: 60px 40px;
       border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
       text-align: center;
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
     }
-
     .logo {
       font-size: 36px;
       font-weight: bold;
       color: #0056b3;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
-
     .subtitle {
       font-size: 14px;
       color: #555;
       margin-bottom: 30px;
     }
-
-    input[type="file"] {
+    .file-upload-wrapper {
+      position: relative;
       width: 100%;
-      padding: 14px;
+      max-width: 100%;
       margin-bottom: 20px;
+    }
+    .file-upload-input {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      padding: 14px;
       border-radius: 10px;
       border: 1px solid #ccc;
-      background: white;
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      height: 100%;
+      z-index: 2;
+    }
+    .file-upload-label {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 14px;
+      padding: 14px;
+      border-radius: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      width: 100%;
+      display: inline-block;
+      cursor: pointer;
+      z-index: 1;
+      position: relative;
       text-align: center;
     }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background-color: #ff5f5f;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
     .footer {
       margin-top: 30px;
       font-size: 11px;
@@ -76,11 +84,24 @@
   <div class="container">
     <div class="logo">TimeWay</div>
     <div class="subtitle">Upload your schedule file below</div>
-    <form action="#" method="post" enctype="multipart/form-data">
-      <input type="file" name="scheduleFile" accept=".xlsx,.csv,.xls" />
-      <button type="submit">Upload File</button>
-    </form>
+    <div class="file-upload-wrapper">
+      <input class="file-upload-input" type="file" name="scheduleFile" id="fileInput" accept=".xlsx,.csv,.xls" onchange="handleFileUpload(this)" />
+      <label for="fileInput" id="fileLabel" class="file-upload-label">לא נבחר קובץ</label>
+    </div>
     <div class="footer">Powered by TimeWay Group</div>
   </div>
+
+  <script>
+    function handleFileUpload(input) {
+      const label = document.getElementById("fileLabel");
+      const fileName = input.files[0]?.name || "לא נבחר קובץ";
+      label.innerText = fileName;
+
+      // העברה אוטומטית לשלב הבא
+      setTimeout(() => {
+        location.href = 'table.html';
+      }, 1000); // השהייה קטנה בשביל UX
+    }
+  </script>
 </body>
 </html>
