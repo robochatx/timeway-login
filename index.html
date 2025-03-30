@@ -1,67 +1,105 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TimeWay - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeWay Login</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       padding: 0;
-      background-color: #f5f7fa;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #eef2f3, #8e9eab);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
     .container {
-      background: #ffffff;
-      padding: 60px;
+      background: #ffffffaa;
+      padding: 60px 40px;
       border-radius: 20px;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
       text-align: center;
       width: 100%;
-      max-width: 600px;
+      max-width: 400px;
     }
     .logo {
-      font-size: 40px;
+      font-size: 36px;
       font-weight: bold;
-      margin-bottom: 30px;
       color: #0056b3;
+      margin-bottom: 20px;
     }
-    input,
-    button {
-      width: 100%;
-      padding: 16px;
-      margin: 14px 0;
-      border-radius: 10px;
-      font-size: 16px;
-      text-align: center;
-      box-sizing: border-box;
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
     }
     input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 10px;
       border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .recover {
+      text-align: right;
+      font-size: 12px;
+      color: #0056b3;
+      margin-bottom: 20px;
+      cursor: pointer;
     }
     button {
-      background-color: #0056b3;
+      width: 100%;
+      padding: 14px;
+      background-color: #ff5f5f;
       color: white;
       border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .or {
+      font-size: 12px;
+      color: #888;
+      margin: 10px 0;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
       cursor: pointer;
     }
     .footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #aaa;
+      margin-top: 30px;
+      font-size: 11px;
+      color: #999;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">TimeWay</div>
+    <div class="subtitle">Welcome back, you've been missed!</div>
     <input type="email" placeholder="Email" />
     <input type="password" placeholder="Password" />
-    <button onclick="location.href='upload.html'">Login</button>
+    <div class="recover">Recovery Password</div>
+    <button>Sign In</button>
+    <div class="or">Or continue with</div>
+    <div class="social-icons">
+      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" />
+      <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="Apple" />
+      <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" />
+    </div>
     <div class="footer">Powered by TimeWay Group</div>
   </div>
 </body>
